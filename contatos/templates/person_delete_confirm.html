@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Confirmacao {% endblock %}
+
+{% block main %}
+
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Exclusão de Cadastro</h5>
+
+        <p class="card-text">
+          Você tem certeza que quer excluir
+          <b>{{ person.nome  }}</b>?
+        </p>
+         <p class="card-text">
+          Após a exclusão não será mais possível ter acesso a estes dados cadastrais.
+        </p>
+         <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Remover Cadastro</button>
+             <a href="/contatos/list"  class="btn btn-outline-danger">Voltar</a>
+    </form>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
+

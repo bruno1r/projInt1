@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Administracao {% endblock %}
+
+{% block main %}
+
+
+    <div class="row">
+        <div class="col">
+
+        </div>
+    <div class="col">
+            {% if user.is_authenticated %}
+                <p style="float:right; margin-right:2em">Olá {{user.username }}
+                    <a href="{% url 'logout' %}">
+                        <span class="badge badge-dark">Sair</span>
+                    </a>
+                </p>
+
+            {% endif %}
+        </div>
+    </div>
+        <div class="col-12">
+            <center><img class="img-fluid" width="30%" height="30%" src="https://igrejadacidade.net/wp-content/uploads/2018/09/Logo-Ics.png"></center>
+          <center>
+
+     <div class="input-group mb-3">
+         <form class="form-inline">
+  <input type="text" class="form-control" id="pesquisa" name="pesquisa" placeholder="Pesquisar por nome" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+  </div>
+        </form>
+</div>
+          </center>
+               <a href="{% url 'person_new' %}" style="float:right"class="btn btn-danger">Novo Cartão</a>
+            <h3>Lista de Contatos</h3>
+            <ul class="list-group list-group-numbered">
+                {% for person in persons %}
+                    <li class="list-group-item">
+                        <a style="color:#000">{{ person.nome }}</a>
+                        <a href="{% url 'persons_delete' person.id %}" class="trash-item pull-right">
+                            <i class="fa fa-trash pull-right" style="color:#000; font-size:25px;" aria-hidden="true"></i>
+  <a href="{% url 'persons_update' person.id %}"><i  style="color:#000; font-size:25px;" class="fa fa-edit pull-right" aria-hidden="true"></i></a>
+  <a href="{% url 'persons_details' person.id %}"><i  style="color:#000; font-size:25px;" class="fa fa-eye pull-right" aria-hidden="true"></i></a>
+                        </a>
+                    </li>
+
+                {% endfor %}
+            </ul>
+
+            <br>
+
+        </div>
+
+
+
+{% endblock %}
+
+{% block footer %}
+  <footer class="text-center text-white fixed-bottom" style="background-color: #21081a;">
+  <!-- Grid container -->
+  <div class="container p-4"></div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a>Sistema de Gerenciamento BPMM</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+{% endblock %}

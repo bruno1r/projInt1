@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Detalhes {% endblock %}
+
+{% block main %}
+
+<div class="container mt-5">
+     <center><img class="img-fluid" width="30%" height="30%" src="https://igrejadacidade.net/wp-content/uploads/2018/09/Logo-Ics.png"></center>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Detalhes do Cartão Selecionado</h5>
+
+        <p class="card-text">
+   <ul class="list-group">
+  <li class="list-group-item"><b>Data / Hora:</b> {{ person.data_hora|default:"------------" }}</li>
+  <li class="list-group-item"><b>Celebração:</b> {{ person.celebracao  }}</li>
+  <li class="list-group-item"><b>Decisão:</b> {{ person.hoje_minha_decisao_foi  }}</li>
+  <li class="list-group-item"><b>Nome:</b> {{ person.nome  }}</li>
+  <li class="list-group-item"><b>Nascimento:</b> {{ person.nascimento|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Idade:</b> {{ person.idade|default:"------------"  }}</li>
+  <li class="list-group-item"><b>CPF:</b> {{ person.cpf|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Profissão:</b> {{ person.profissao|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Email:</b> {{ person.email|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Endereço:</b> {{ person.endereco|default:"------------" }}</li>
+  <li class="list-group-item"><b>Complemento:</b> {{ person.compl|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Bairro:</b> {{ person.bairro|default:"------------" }}</li>
+  <li class="list-group-item"><b>Cidade:</b> {{ person.cidade|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Estado:</b> {{ person.estado  }}</li>
+  <li class="list-group-item"><b>Celular / WhatsApp:</b> {{ person.celular_whatsapp|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Tipo de Preenchimento:</b> {{ person.tipo_de_preenchimento  }}</li>
+  <li class="list-group-item"><b>Nome Atendente:</b> {{ person.nome_atendente|default:"------------" }}</li>
+  <li class="list-group-item"><b>Codigo Membro IC:</b> {{ person.codigo_membro_ic|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Supervisor:</b> {{ person.supervisor|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Email Membro:</b> {{ person.email_membro|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Celular / WhatsApp Membro:</b> {{ person.celular_membro_whatsapp|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Discipulador Pessoal:</b> {{ person.discipulador_pessoal  }}</li>
+  <li class="list-group-item"><b>Coordenador de Recomeço:</b> {{ person.coordenador_recomeco|default:"------------"  }}</li>
+  <li class="list-group-item"><b>Supervisor de Recomeço:</b> {{ person.supervisor_recomeco|default:"------------"  }}</li>
+   </ul>
+        </p>
+             <a href="/contatos/list"  class="btn btn-outline-danger">Voltar</a>
+             <a href="{% url 'persons_update' person.id %}" class="btn btn-danger">Editar Cartão</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+

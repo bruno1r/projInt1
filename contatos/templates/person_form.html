@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Administracao {% endblock %}
+
+{% block main %}
+  <center><img class="img-fluid" width="20%" height="20%" src="https://igrejadacidade.net/wp-content/uploads/2018/09/Logo-Ics.png"></center>
+    <h3>Cadastro Cartão de Decisão</h3>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-danger">Salvar Cadastro</button> <a href="/contatos/list"  class="btn btn-outline-danger">Voltar</a>
+    </form>
+{% endblock %}
